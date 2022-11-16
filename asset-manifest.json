@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/zingmp3/static/css/main.7e58d067.css",
+    "main.js": "/zingmp3/static/js/main.85f7be44.js",
+    "static/js/787.6ba9440d.chunk.js": "/zingmp3/static/js/787.6ba9440d.chunk.js",
+    "static/media/HPBDChangg.jpg": "/zingmp3/static/media/HPBDChangg.882cc37df4e21d89bc52.jpg",
+    "static/media/LamDauAnhDI.jpg": "/zingmp3/static/media/LamDauAnhDI.36e61e9cd39bfd650c94.jpg",
+    "static/media/onlyc.webp": "/zingmp3/static/media/onlyc.aa04d186dabb5257d9c1.webp",
+    "static/media/Xone.jpg": "/zingmp3/static/media/Xone.6ffe4302afbf6c350a94.jpg",
+    "static/media/mrsiro.webp": "/zingmp3/static/media/mrsiro.92480e7ce45e271ac9ff.webp",
+    "static/media/webp": "/zingmp3/static/media/749ba06d29317d07bdbd2617808b8a7f.56aaff079c2e7b065fd9.webp",
+    "static/media/quangcao.jpg": "/zingmp3/static/media/quangcao.415100e94237c680e117.jpg",
+    "static/media/k-pop.webp": "/zingmp3/static/media/k-pop.d6d0ce1b8bba7d12a495.webp",
+    "static/media/huongtram.webp": "/zingmp3/static/media/huongtram.95a03850d9c345dd8526.webp",
+    "static/media/min.webp": "/zingmp3/static/media/min.324d242431e12d74c791.webp",
+    "static/media/v-pop.webp": "/zingmp3/static/media/v-pop.d0f288da83fe1064e127.webp",
+    "static/media/us-uk.webp": "/zingmp3/static/media/us-uk.0c876abe69791095d14c.webp",
+    "static/media/china-pop.webp": "/zingmp3/static/media/china-pop.b5464994fbaf42a495fb.webp",
+    "static/media/v-indie.webp": "/zingmp3/static/media/v-indie.0eb7d117125984c25146.webp",
+    "static/media/logo.svg": "/zingmp3/static/media/logo.4e02da0739d47edf29c82c1308acaa78.svg",
+    "static/media/slick.svg": "/zingmp3/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/zingmp3/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/zingmp3/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/zingmp3/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/zingmp3/index.html",
+    "main.7e58d067.css.map": "/zingmp3/static/css/main.7e58d067.css.map",
+    "main.85f7be44.js.map": "/zingmp3/static/js/main.85f7be44.js.map",
+    "787.6ba9440d.chunk.js.map": "/zingmp3/static/js/787.6ba9440d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e58d067.css",
+    "static/js/main.85f7be44.js"
+  ]
+}
