@@ -1,0 +1,106 @@
+.wrapper {
+    margin-top: 100px;
+    padding: 0 var(--padding-default-both-sides);
+}
+
+// .bg-alpha {
+//     background-image: url('https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.25/static/media/week-chart-bg.edf332e5.jpg');
+// }
+
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 34px;
+    margin-bottom: 28px;
+
+    span {
+        margin-left: 5px;
+        font-size: 42px;
+    }
+}
+
+.details-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+    min-height: 32px;
+}
+
+.list-title {
+    display: flex;
+    align-items: center;
+}
+
+.list-title-item {
+    position: relative;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.link {
+}
+
+.link--to {
+    padding: 15px 0;
+}
+
+.active {
+    border-bottom: 2.5px solid var(--primary-color);
+    position: relative;
+    left: 0;
+    bottom: 0;
+}
+
+.list-title-item:nth-child(1) {
+    margin-left: 0;
+}
+
+.list-title-item:nth-child(3) {
+    margin-right: 0;
+}
+
+.calendar {
+    margin-bottom: 15px;
+}
+
+.time {
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    min-width: 120px;
+    background-color: var(--alpha-bgc);
+    border-radius: 100rem;
+}
+
+.time-btn {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.5;
+    text-align: center;
+    background: transparent;
+    color: var(--white-color);
+}
+
+.detailed-time {
+    margin-right: 20px;
+}
+
+.icon-dropdown {
+    font-style: 16px;
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .wrapper {
+        padding: 0 15px;
+    }
+}

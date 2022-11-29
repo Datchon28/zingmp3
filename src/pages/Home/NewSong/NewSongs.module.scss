@@ -1,0 +1,155 @@
+.main {
+    margin-top: 30px;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 0 16px;
+}
+
+.title {
+    font-size: 20px;
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    // display: flex;
+    // align-items: center;
+    // padding: 10px 0;
+}
+
+.newsong__content {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.wrapper {
+    width: 100%;
+    padding: 0 16px;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    border-radius: 5px;
+    height: 150px;
+    padding: 15px;
+    background-color: var(--alpha-bgc);
+    cursor: pointer;
+
+    &:hover .icon-play {
+        display: flex;
+        background-color: var(--alpha-bgc-dark);
+    }
+}
+
+.thumb {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-right: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        object-fit: cover;
+        transform: scale(1);
+        transition: all 0.8s;
+        overflow: hidden;
+    }
+
+    &:hover .img {
+        transform: scale(1.1);
+    }
+}
+
+.icon-play {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 34px;
+    text-align: center;
+    display: none;
+    border-radius: 5px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    flex-direction: column;
+}
+
+.info-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    align-items: baseline;
+}
+
+.name-song {
+    font-size: 16px;
+    color: var(--white-color);
+}
+
+.author {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--desc-color);
+
+    &:hover {
+        text-decoration: underline;
+        color: var(--primary-color);
+    }
+}
+
+.rank {
+    font-size: 40px;
+    opacity: 0.4;
+    -webkit-text-stroke: 1px #fff;
+    font-size: 40px;
+    font-weight: 900;
+    color: transparent;
+    line-height: 1;
+}
+
+.release-date {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--desc-color);
+}
+
+.section-playlist__content {
+    display: flex;
+    align-items: center;
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .newsong__content {
+        flex-wrap: wrap;
+    }
+
+    .wrapper {
+        padding: 6px 12px;
+    }
+
+    .section-playlist__content {
+        display: block;
+    }
+}

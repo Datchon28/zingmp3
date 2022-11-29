@@ -1,0 +1,130 @@
+.wrapper {
+    padding: 0 14px;
+    margin-top: 48px;
+}
+
+.title {
+    margin-bottom: 20px;
+    color: var(--white-color);
+    font-size: 20px;
+}
+
+.list {
+    margin: 0 -14px;
+    display: flex;
+    align-items: center;
+}
+
+.item {
+    padding: 0 14px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover img {
+        transform: scale(1.1);
+        transition: all 0.8s;
+    }
+}
+
+.banner-thumb {
+    position: relative;
+    width: 100%;
+    height: 216px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        transform: scale(1);
+        object-fit: cover;
+    }
+}
+
+.background-tilte {
+    background-image: linear-gradient(180deg, transparent 27%, rgba(0, 0, 0, 0.78));
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.infomation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    color: var(--white-color);
+    position: absolute;
+    padding: 13px 10px;
+    bottom: 0;
+    z-index: 2;
+}
+
+.info-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.info-time {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.care-about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--white-color);
+}
+
+.care-btn {
+    display: flex;
+    padding: 9px 20px;
+    font-size: 14px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+    text-transform: uppercase;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--link-text-hover);
+    }
+}
+
+// Tablet Reponsive
+@media (max-width: 1024px) and (min-width: 740px) {
+    .wrapper {
+        margin-top: 80px;
+    }
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .wrapper {
+        margin: 0;
+    }
+
+    .list {
+        flex-wrap: wrap;
+    }
+
+    .item {
+        margin-bottom: 20px;
+    }
+}

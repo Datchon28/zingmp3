@@ -1,0 +1,14 @@
+.wrapper {
+    margin: 48px 0;
+}
+
+img {
+    width: 100%;
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .wrapper {
+        display: none;
+    }
+}

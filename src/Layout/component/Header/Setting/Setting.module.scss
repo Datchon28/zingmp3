@@ -1,0 +1,266 @@
+.tippi-setting-header {
+    padding: 0 !important;
+}
+
+.wrapper {
+    width: 240px;
+    max-height: 500px;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: var(--background-color-focus-search);
+    border-radius: 8px;
+}
+
+.setting {
+    position: relative;
+    padding: 8px 12px;
+    width: 100%;
+    height: 100%;
+    background-color: #2f2739;
+    color: var(--white-color);
+    border-radius: 100rem;
+}
+
+.setting-menu {
+    width: 240px;
+    height: 403px;
+}
+
+.menu-item-musc,
+.menu-item-policy {
+    list-style: none;
+}
+
+.menu-item-musc {
+    border-bottom: 1px solid #50327e;
+    padding: 10px 0;
+}
+
+.menu-item-policy {
+}
+.menu-item-policy-list,
+.menu-item-musc-list {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 10px 17px;
+    cursor: pointer;
+}
+
+.menu-item-musc-list {
+    position: relative;
+    padding: 12px 20px 12px 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .media-left {
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+
+    h4 {
+        font-weight: 500;
+        color: var(--text-color);
+        font-size: 14px;
+    }
+
+    span {
+        font-size: 18px;
+        padding-right: 10px;
+    }
+    &:hover {
+        background-color: #563983;
+    }
+}
+
+.music-quality {
+    &:hover .list-music-quality {
+        transition: 1s all linear;
+        display: flex;
+    }
+}
+
+.list-music-quality {
+    position: absolute;
+    top: -30px;
+    left: -267px;
+    width: 270px;
+    height: auto;
+    padding: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--background-color-focus-search);
+    box-shadow: 4px 1px 16px -10px #000;
+    z-index: 99;
+    display: none;
+
+    .music-quality-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 8px 14px;
+
+        &:hover {
+            background-color: #563983;
+        }
+    }
+
+    .quality-320,
+    .quality-128 {
+        width: fit-content;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .desc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .explain {
+        margin-top: 6px;
+        font-size: 12px;
+        flex: 1 1;
+        color: var(--desc-color);
+        text-align: left;
+    }
+
+    .icon-check {
+        padding: 0;
+        padding-left: 10px;
+        font-size: 20px;
+    }
+}
+
+.ui-music {
+    &:hover .list-ui-musc {
+        display: flex;
+    }
+}
+
+.list-ui-musc {
+    position: absolute;
+    right: 97%;
+    width: 276px;
+    height: auto;
+    background: red;
+    padding: 18px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 4px 1px 16px -10px #000;
+    background-color: var(--background-color-focus-search);
+    display: none;
+
+    .ui-music-item {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .play-song-full-screen {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+    }
+
+    .ui-music-item--title {
+        font-size: 14px;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        text-align: left;
+        font-weight: 400;
+        color: var(--text-color);
+    }
+
+    .ui-music-item-toogle {
+        position: relative;
+        width: 32px;
+        height: 16px;
+        background: #ccc;
+        border-radius: 20px;
+    }
+
+    .effect {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    // Handle Button Toggle Switch
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        border-radius: 10px;
+    }
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider::before {
+        position: absolute;
+        content: '';
+        width: 16px;
+        height: 100%;
+        right: 49%;
+        top: 0;
+        bottom: 0;
+        background-color: var(--white-color);
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: var(--primary-color);
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+}
+
+.menu-item-policy-list {
+    h4 {
+        font-weight: 500;
+        color: #907dae;
+        font-size: 14px;
+    }
+
+    span {
+        font-size: 17px;
+        padding-right: 10px;
+        color: #907dae;
+    }
+
+    &:hover {
+        background-color: #563983;
+    }
+
+    &:hover:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}

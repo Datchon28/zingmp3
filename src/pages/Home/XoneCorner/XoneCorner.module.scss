@@ -1,0 +1,24 @@
+.wrapper {
+    width: 100%;
+    height: 335px;
+    margin-top: 30px;
+}
+
+.title {
+    margin-top: 30px;
+    padding: 0 16px;
+    margin-bottom: 20px;
+    color: var(--white-color);
+}
+
+.list {
+    display: flex;
+    align-items: center;
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .wrapper {
+        display: none;
+    }
+}

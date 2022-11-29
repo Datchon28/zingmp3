@@ -1,0 +1,43 @@
+.wrapper {
+    padding: 0 14px;
+    margin-top: 20px;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    margin: 0 -14px;
+}
+
+.topic {
+    padding: 0 14px;
+    width: calc(100% / 3);
+    height: 100%;
+
+    &:hover .img {
+        transform: scale(1.1);
+    }
+}
+
+.topic-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    transition: all 0.8s;
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .wrapper {
+        display: none;
+    }
+}

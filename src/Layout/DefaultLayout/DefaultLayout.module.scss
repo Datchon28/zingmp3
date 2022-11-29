@@ -1,0 +1,51 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container {
+    min-height: 1000px;
+    width: calc(100% - 240px);
+    max-width: 100%;
+    right: 0;
+    margin-left: 240px;
+    margin-bottom: 89px;
+    flex: 1;
+    background-color: var(--default-color-container);
+}
+
+.content {
+    background-color: var(--default-color-container);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--default-color-container);
+}
+
+::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #5d5765;
+    border-radius: 5px;
+}
+
+// Tablet Resposive
+@media (min-width: 740px) and (max-width: 1024px) {
+    .container {
+        margin-left: 69px;
+    }
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+}

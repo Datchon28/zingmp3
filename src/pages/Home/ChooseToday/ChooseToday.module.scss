@@ -1,0 +1,27 @@
+.wrapper {
+    height: auto;
+    max-width: 100%;
+}
+
+.title {
+    padding: 0 16px;
+    margin-bottom: 20px;
+    color: var(--white-color);
+}
+
+.list {
+    display: flex;
+    align-items: center;
+}
+
+.item {
+    width: calc(214px + 32px);
+    height: 214px;
+    padding: 0 16px;
+}
+
+@media (max-width: 740px) {
+    .list {
+        flex-wrap: wrap;
+    }
+}

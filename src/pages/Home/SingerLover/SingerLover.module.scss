@@ -1,0 +1,49 @@
+.wrapper {
+    height: 335px;
+    max-width: 100%;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    margin-top: 38px;
+    padding: 0 16px;
+    margin-bottom: 20px;
+    color: var(--white-color);
+}
+
+.img-song {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+
+    img {
+        width: calc(100% / 3);
+        height: auto;
+        border-radius: 5px;
+        padding: 6px;
+    }
+}
+
+.info-singer {
+    position: absolute;
+    bottom: -16px;
+    width: 100%;
+
+    h4 {
+        font-size: 21px;
+        color: var(--white-color);
+        padding-left: 10px;
+        padding-bottom: 12px;
+    }
+}
+
+@media (max-width: 740px) {
+    .wrapper {
+        display: none;
+    }
+}

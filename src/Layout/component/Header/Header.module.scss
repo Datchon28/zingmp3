@@ -1,0 +1,202 @@
+.wrapper {
+    height: var(--default-header-height);
+    background-color: var(--default-color-container);
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 240px;
+    z-index: 99;
+    display: flex;
+    padding: 0 59px;
+}
+
+.tools {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-on-mobile {
+    position: absolute;
+    height: 100%;
+    left: 35%;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+.one {
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.side-bar-on-mobile {
+    display: none;
+}
+
+.search-icon {
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.arrow-move {
+    width: 65px;
+    font-size: 21px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 25px;
+    color: #4b4554;
+    font-weight: 400;
+}
+
+.upload {
+    width: 50px;
+    height: 50px;
+
+    img {
+        height: 100%;
+    }
+}
+
+.list-option {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.option-item {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:nth-last-child(1) {
+        margin-right: 0;
+    }
+}
+
+.user {
+    display: block;
+}
+
+.upload,
+.setting-btn {
+    width: 100%;
+    height: 100%;
+    background-color: #2f2739;
+    color: var(--white-color);
+    border-radius: 100rem;
+    cursor: pointer;
+}
+
+.list-setting {
+    width: 240px;
+    background: purple;
+    position: absolute;
+    right: 107px;
+    top: 65px;
+    border-radius: 10px;
+}
+
+.user-account {
+    width: 40px;
+    height: 40px;
+    background-color: #2f2739;
+    color: var(--white-color);
+    border-radius: 100rem;
+
+    img {
+        height: 100%;
+        border-radius: 100rem;
+    }
+}
+
+// Tablet Reponsive
+@media (min-width: 740px) and (max-width: 1024px) {
+    .wrapper {
+        left: 70px;
+        padding: 0 29px;
+    }
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .sidebar-mobile-modal {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        animation: slidetoscreen 0.3s ease-in;
+    }
+
+    .side-bar-on-mobile {
+        display: block;
+    }
+
+    .wrapper {
+        left: 0;
+        width: 100%;
+        padding: 0 15px;
+        z-index: 9999999999999;
+    }
+
+    .arrow-move {
+        display: none;
+    }
+
+    .side-bar-on-mobile {
+        font-size: 22px;
+        padding: 0 10px;
+    }
+
+    .option-item {
+        display: none;
+    }
+
+    .user {
+        display: block;
+    }
+
+    .one {
+        flex: 1;
+        justify-content: space-between;
+    }
+
+    .logo-on-mobile {
+        display: block;
+        width: calc(100% / 3);
+    }
+
+    .logo-on-mobile-link {
+        background-image: url(../../../assets/images/logo.svg);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: 50px;
+        font-size: 34px;
+        padding: 4px 12px;
+    }
+
+    @keyframes slidetoscreen {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+}

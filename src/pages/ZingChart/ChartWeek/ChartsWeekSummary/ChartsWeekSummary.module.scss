@@ -1,0 +1,143 @@
+.wrapper {
+    position: relative;
+    padding: 40px var(--padding-default-both-sides) 0 var(--padding-default-both-sides);
+}
+
+.blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    background: url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.25/static/media/week-chart-bg.edf332e5.jpg)
+        top/cover no-repeat;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.alpha-bgc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(32, 19, 53, 0.9);
+}
+
+.title {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.title-link {
+    color: var(--white-color);
+    width: fit-content;
+    line-height: normal;
+    font-weight: 800;
+    font-size: 36px;
+    text-transform: capitalize;
+}
+
+.chart-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 -14px;
+}
+
+.list {
+    width: 33.3333%;
+    padding: 0 14px;
+    margin-bottom: 30px;
+}
+
+.item {
+    padding: 20px 10px;
+    border-radius: 16px;
+    background-color: var(--chartsweekitem-bgc);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 0 10px 40px;
+}
+
+.header-link {
+    font-size: 23px;
+    font-weight: 700;
+    span {
+        color: var(--white-color);
+
+        &:hover {
+            color: var(--link-text-hover);
+        }
+    }
+}
+
+.play-btn {
+    margin-left: 5px;
+    width: 29px;
+    height: 29px;
+    border-radius: 100rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.see-all__btn {
+    padding: 8px 25px;
+    border-radius: 100rem;
+    border: 1px solid;
+    font-size: 13px;
+    color: var(--white-color);
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--alpha-bgc);
+    }
+}
+
+.see-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Tablet Reponsive
+@media (max-width: 1024px) and (min-width: 740px) {
+    .wrapper {
+        padding: 40px calc(var(--padding-default-both-sides) - 16px) 0 calc(var(--padding-default-both-sides) - 16px);
+    }
+
+    .chart-list {
+        display: block;
+    }
+
+    .list {
+        padding: 0;
+        width: 100%;
+    }
+}
+
+// Mobile Reponsive
+@media (max-width: 740px) {
+    .wrapper {
+        padding: 0 20px;
+    }
+
+    .chart-list {
+        flex-wrap: wrap;
+    }
+
+    .list {
+        width: 100%;
+    }
+}
