@@ -142,6 +142,10 @@
 
 // Mobile Reponsive
 @media (max-width: 740px) {
+    .head {
+        margin: 0;
+    }
+
     .newsong__content {
         flex-wrap: wrap;
     }

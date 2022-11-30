@@ -33,6 +33,7 @@
 .result-item {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     padding: 8px 10px;
     font-size: 13px;
     font-weight: 500;
@@ -119,35 +120,42 @@
     }
 
     .input {
-        height: 40px;
+        height: 44px;
+        background-color: var(--background-color-focus-search);
+
+        border: 1px solid;
+        border-radius: 10px;
     }
 
     .wrapper-search {
         left: -5px;
-        top: 46px;
+        top: -635px;
+        width: 415px !important;
     }
 
     .search-btn {
-        top: 55px;
         left: 0;
         right: unset;
         font-size: 22px;
         margin-right: 10px;
+        height: 44px;
+        font-size: 18px;
     }
 
-    .input {
-        background-color: var(--background-color-focus-search);
-        margin-top: 54px;
+    .name-song-result {
+        font-size: 16px;
+        flex: 1;
     }
 
     .icon-load {
+        top: 3px;
         height: auto;
-        top: 54px;
     }
 
     .clear {
-        top: 66px;
+        top: 13px;
         height: auto;
+        font-size: 16px;
     }
 
     .close-modal-search-mobile {

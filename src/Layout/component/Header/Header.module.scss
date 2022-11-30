@@ -38,6 +38,7 @@
     display: none;
 }
 
+.close-modal-search-mobile,
 .search-icon {
     font-size: 24px;
     margin-right: 12px;
@@ -126,6 +127,13 @@
 
 // Mobile Reponsive
 @media (max-width: 740px) {
+    .modal-search {
+        top: unset !important;
+        height: 91% !important;
+        background-color: rgba(0, 0, 0, 0.8) !important;
+        animation: hidefrombottom 0.2s linear;
+    }
+
     .sidebar-mobile-modal {
         width: 100%;
         height: 100%;
@@ -196,6 +204,15 @@
         }
         100% {
             transform: translateX(0);
+        }
+    }
+
+    @keyframes hidefrombottom {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0%);
         }
     }
 }

@@ -85,9 +85,15 @@ function Header() {
 
                     {isMobile ? (
                         <Fragment>
-                            <span className={cx('search-icon')} onClick={OpenSearchOnMobile}>
-                                <FontAwesomeIcon icon={faSearch} />
-                            </span>
+                            {isOpenSearchMobile ? (
+                                <span className={cx('close-modal-search-mobile')} onClick={OpenSearchOnMobile}>
+                                    <FontAwesomeIcon icon={faClose} />
+                                </span>
+                            ) : (
+                                <span className={cx('search-icon')} onClick={OpenSearchOnMobile}>
+                                    <FontAwesomeIcon icon={faSearch} />
+                                </span>
+                            )}
                             {isOpenSearchMobile && (
                                 <Modal classNames={cx('modal-search')}>
                                     <Search />

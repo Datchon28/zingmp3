@@ -3,7 +3,6 @@ import style from './SideBarMobile.module.scss';
 
 import Menu from '../Menu';
 import MenuItem from '../Menu/MenuItem';
-import { faClose } from '@fortawesome/free-solid-svg-icons';
 import {
     faMusic,
     faCircleDot,
@@ -12,14 +11,9 @@ import {
     faTableList,
     faHouse,
     faIcons,
-    faStar,
-    faPlus,
-    faArrowRight,
-    faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import config from '../../../../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Modal from '../../../../components/Modal/Modal';
 import { useContext, useState } from 'react';
 import { MenuSideBarMobile } from '../../Header/Header';
 

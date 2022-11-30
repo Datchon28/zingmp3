@@ -59,25 +59,20 @@ function Search() {
             <HeadlessTippy
                 trigger="click"
                 interactive
-                hideOnClick={true}
+                hideOnClick={isMobile ? false : 'toggle'}
                 placement="bottom-end"
                 render={(attrs) => (
                     <Wrapper className={cx('wrapper-search')} {...attrs}>
                         <h4 className={cx('title-search')}>Đề xuất cho bạn</h4>
                         <ul className={cx('list-result')}>
-                            {searchResult.splice(0, 6).map((item, index) => (
-                                <SearchResult data={item} key={index} />
-                            ))}
+                            {searchResult
+                                .map((item, index) => <SearchResult data={item} key={index} />)
+                                .splice(0, isMobile ? 12 : 6)}
                         </ul>
                     </Wrapper>
                 )}
             >
                 <div className={cx('content')}>
-                    {isMobile && (
-                        <span className={cx('close-modal-search-mobile')}>
-                            <FontAwesomeIcon icon={faClose} />
-                        </span>
-                    )}
                     <button className={cx('search-btn')}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </button>

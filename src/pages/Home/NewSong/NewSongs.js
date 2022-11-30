@@ -43,7 +43,7 @@ function NewSongs() {
             <div className={cx('head')}>
                 <h3 className={cx('title')}>Nhạc Mới</h3>
                 <Link to="/newmusic">
-                    <span>Tat ca</span>
+                    <span>Tất cả</span>
                 </Link>
             </div>
             <div className={cx('content')}>
