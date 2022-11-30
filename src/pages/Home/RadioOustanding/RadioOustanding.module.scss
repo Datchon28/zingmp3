@@ -31,7 +31,7 @@
     position: absolute;
     top: 58.3%;
     left: 81.3%;
-    transform: translate(-60%, -60%);
+    transform: translate(-60%, -26%);
     z-index: 3;
     width: 30.5%;
     height: auto;
@@ -41,6 +41,13 @@
         width: 100%;
         border-radius: 999rem;
         border: 2px solid #170f23;
+    }
+}
+
+// Tablet Reponsive
+@media (max-width: 1024px) and (min-width: 740px) {
+    .avatar-raido {
+        transform: translate(-16%, -10%);
     }
 }
 

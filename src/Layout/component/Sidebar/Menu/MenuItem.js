@@ -12,7 +12,7 @@ function MenuItem({ title, to, icon }) {
     const checked = useContext(Check);
     console.log();
 
-    const scrollToTop = () => {
+    const scrollToTop = (e) => {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     };
 
