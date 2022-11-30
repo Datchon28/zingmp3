@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import style from './Sidebar.module.scss';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faMusic,
@@ -14,8 +15,6 @@ import {
     faArrowRight,
     faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
-
-import images from '../../../assets/images';
 import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import MenuItem from './Menu/MenuItem';
