@@ -12,6 +12,7 @@ function App() {
                 <DefaultLayout>
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/zingmp3" element={<Home />} />
                         <Route path="/Chart" element={<ZingChart />} />
                         <Route path="/Chart/chart-week" element={<ChartsWeekDetail />} />
                         <Route path="/newmusic" element={<NewSongFull />} />
