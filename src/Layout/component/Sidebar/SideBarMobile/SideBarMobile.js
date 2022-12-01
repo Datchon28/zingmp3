@@ -27,6 +27,10 @@ function SideBarMobile({}) {
         setIsOpen(!isOpen);
     };
 
+    const CloseSideBar = () => {
+        setIsOpen(false);
+    };
+
     if (isOpen === false) {
         modalSideBarMobile.style.display = 'none';
     }

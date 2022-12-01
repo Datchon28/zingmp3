@@ -8,7 +8,7 @@ import { Check } from '../Sidebar.js';
 
 const cx = classNames.bind(style);
 
-function MenuItem({ title, to, icon }) {
+function MenuItem({ title, to, icon, onClick }) {
     const checked = useContext(Check);
     console.log();
 

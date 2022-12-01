@@ -4,7 +4,7 @@ import Hover from '../Hover/Hover';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMicrophone, faHeart, faEllipsis, faPlay } from '@fortawesome/free-solid-svg-icons';
 import MenuChildForSong from './MenuChildForSong/MenuChildForSong';
-import { useState, useRef, Fragment, createContext, useEffect } from 'react';
+import { useState, useRef, Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateIdSong } from '../../store/SongIdStore';
 

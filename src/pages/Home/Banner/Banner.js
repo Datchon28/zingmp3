@@ -6,11 +6,8 @@ import images from '../../../assets/images';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-
 const cx = classNames.bind(style);
 
 function Banner() {
@@ -54,7 +51,7 @@ function Banner() {
     return (
         <div className={cx('banner-wrapper')}>
             <div>
-                <div className={cx('banner-song')}>
+                <div className={cx('banner-song', banner.length <= 0 && 'loading')}>
                     <Slider {...settings}>
                         {banner.map((item, index) => (
                             <Button to="/" className={cx('banner-link')} key={index}>
