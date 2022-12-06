@@ -8,7 +8,7 @@ import NewSongFull from './pages/Home/NewSong/NewSongsFull/NewSongsFull';
 function App() {
     return (
         <div className="App">
-            <Router>
+            <Router basename="/">
                 <DefaultLayout>
                     <Routes>
                         <Route path="/" element={<Home />} />
