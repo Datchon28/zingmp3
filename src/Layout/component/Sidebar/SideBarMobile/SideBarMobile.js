@@ -14,27 +14,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import config from '../../../../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useContext, useState } from 'react';
-import { MenuSideBarMobile } from '../../Header/Header';
 
 const cx = classNames.bind(style);
 
-function SideBarMobile({}) {
-    const { isOpenSideBarMobile } = useContext(MenuSideBarMobile);
-    const [isOpen, setIsOpen] = useState(isOpenSideBarMobile);
-    const modalSideBarMobile = document.querySelector('.sidebar-mobile-modal');
-    const handleOpenSideBarMobile = () => {
-        setIsOpen(!isOpen);
-    };
-
-    const CloseSideBar = () => {
-        setIsOpen(false);
-    };
-
-    if (isOpen === false) {
-        modalSideBarMobile.style.display = 'none';
-    }
-
+function SideBarMobile() {
     return (
         <div className={cx('wrapper')}>
             <header>
@@ -53,10 +36,10 @@ function SideBarMobile({}) {
                             </a>
                         </div>
                         <div className={cx('vip-info')}>
-                            <a href="" className={cx('upgrade-vip')}>
+                            <a href="/" className={cx('upgrade-vip')}>
                                 Nâng cấp VIP
                             </a>
-                            <a href="" className={cx('take-code-vip')}>
+                            <a href="/" className={cx('take-code-vip')}>
                                 Nhận code VIP
                             </a>
                         </div>
