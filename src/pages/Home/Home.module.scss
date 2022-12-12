@@ -7,6 +7,10 @@
     padding-top: 26px;
 }
 
+.banner-box {
+    padding: 0 14px;
+}
+
 .banner-song {
     // padding-top: 20px;
     // width: 100%;
@@ -57,7 +61,7 @@
 // Tablet Resposive
 @media (min-width: 740px) and (max-width: 1024px) {
     .wrapper {
-        padding: 0 calc(var(--padding-default-both-sides) - 50px);
+        padding: 0 calc(var(--padding-default-both-sides) - 45px);
     }
 }
 
@@ -72,6 +76,10 @@
     }
 
     .banner-wrapper {
+        padding: 0;
+    }
+
+    .banner-box {
         padding: 0;
     }
 

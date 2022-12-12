@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import style from './SongHover.module.scss';
+
 import Hover from '../Hover/Hover';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMicrophone, faHeart, faEllipsis, faPlay } from '@fortawesome/free-solid-svg-icons';

@@ -1,8 +1,10 @@
 import classNames from 'classnames/bind';
 import style from './NewRelease.module.scss';
+
 import { useEffect, useState } from 'react';
 import Songs from './Songs/Songs';
 import Albums from './Albums/Album';
+import axios from 'axios';
 
 const cx = classNames.bind(style);
 
@@ -40,13 +42,13 @@ function NewRelease() {
     const [newReleaseSongsOther, setNewReleaseSongsOther] = useState([]);
 
     useEffect(() => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setNewReleaseSongsVietNam(data.data.items[3].items.vPop);
-                setNewReleaseSongsOther(data.data.items[3].items.others);
-            });
-    }, []);
+        axios.get(url).then((data) => {
+            setNewReleaseSongsVietNam(data.data.items[3].items.vPop);
+            setNewReleaseSongsOther(data.data.items[3].items.others);
+        });
+    }, [url]);
+
+    console.log(newReleaseSongsVietNam.length);
 
     return (
         <div className={cx('main')}>

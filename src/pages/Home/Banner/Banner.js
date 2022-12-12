@@ -50,12 +50,12 @@ function Banner() {
     };
     return (
         <div className={cx('banner-wrapper')}>
-            <div>
+            <div className={cx('banner-box')}>
                 <div className={cx('banner-song', banner.length <= 0 && 'loading')}>
                     <Slider {...settings}>
                         {banner.map((item, index) => (
                             <Button to="/" className={cx('banner-link')} key={index}>
-                                <div className={cx('banner-content')}>
+                                <div className={cx('-conbannertent')}>
                                     <img alt="anh" src={item.banner} />
                                 </div>
                             </Button>
