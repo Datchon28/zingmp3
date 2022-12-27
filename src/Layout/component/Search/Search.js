@@ -43,7 +43,7 @@ function Search() {
             setIsLoading(true);
 
             await axios
-                .get(`https://apizingmp3.herokuapp.com/api/search?keyword={${debounce}}`)
+                .get(`https://apizingmp3.vercel.app/api/search?keyword={${debounce}}`)
                 .then((data) => {
                     setsearchResult(data.data.data.songs);
                 })

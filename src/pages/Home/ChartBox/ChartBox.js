@@ -8,20 +8,19 @@ import config from '../../../config';
 import { useContext, useEffect, useState } from 'react';
 import SongHover from '../../../components/SongHover/SongHover';
 import { Responsive } from '../../../Layout/DefaultLayout/DefaultLayout';
+import axios from 'axios';
 
 const cx = classNames.bind(style);
 
 function ChartBox() {
     const { isMobile } = useContext(Responsive);
-    const url = `https://apizingmp3.herokuapp.com/api/charthome`;
+    const url = `https://apizingmp3.vercel.app/api/charthome`;
     const [chartsSong, setChartsSongs] = useState([]);
 
     useEffect(() => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setChartsSongs(data.data.RTChart.items);
-            });
+        axios.get(url).then((data) => {
+            setChartsSongs(data.data.data.RTChart.items);
+        });
     }, []);
 
     return (

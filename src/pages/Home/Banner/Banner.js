@@ -11,7 +11,7 @@ import axios from 'axios';
 const cx = classNames.bind(style);
 
 function Banner() {
-    const url = `https://apizingmp3.herokuapp.com/api/home?page={param-page}`;
+    const url = `https://apizingmp3.vercel.app/api/home?page={param-page}`;
 
     const [banner, setBanner] = useState([]);
 
@@ -19,7 +19,7 @@ function Banner() {
         axios(url).then((data) => {
             setBanner(data.data.data.items[0].items);
         });
-    }, []);
+    }, [url]);
 
     const settings = {
         dots: true,
@@ -55,7 +55,7 @@ function Banner() {
                     <Slider {...settings}>
                         {banner.map((item, index) => (
                             <Button to="/" className={cx('banner-link')} key={index}>
-                                <div className={cx('-conbannertent')}>
+                                <div className={cx('banner-content')}>
                                     <img alt="anh" src={item.banner} />
                                 </div>
                             </Button>

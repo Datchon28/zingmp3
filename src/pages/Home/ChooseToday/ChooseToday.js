@@ -4,11 +4,12 @@ import style from './ChooseToday.module.scss';
 import OverLaySong from '../../../components/OverLaySong/OverLaySong';
 import { Responsive } from '../../../Layout/DefaultLayout/DefaultLayout';
 import { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
 
 const cx = classNames.bind(style);
 
 function ChooseToday() {
-    const url = `https://apizingmp3.herokuapp.com/api/home?page={playlist}`;
+    const url = `https://apizingmp3.vercel.app/api/home?page={playlist}`;
 
     const { isTablet } = useContext(Responsive);
 
@@ -16,12 +17,10 @@ function ChooseToday() {
     const [titles, setTitles] = useState();
 
     useEffect(() => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setPlaylist(data.data.items[4].items);
-                setTitles(data.data.items[4].title);
-            });
+        axios.get(url).then((data) => {
+            setPlaylist(data.data.data.items[2].items);
+            setTitles(data.data.data.items[2].title);
+        });
     }, []);
 
     return (

@@ -48,7 +48,7 @@ function SongBox() {
         // Get Info Song By Api
         if (idsong !== undefined) {
             const fetchInfo = async () => {
-                await axios.get(`https://apizingmp3.herokuapp.com/api/infosong?id={${idsong}}`).then((info) => {
+                await axios.get(`https://apizingmp3.vercel.app/api/infosong?id={${idsong}}`).then((info) => {
                     setInfo(info.data.data);
                 });
             };
@@ -59,7 +59,7 @@ function SongBox() {
 
         // Play Song By Api
         const fetchData = async () => {
-            const data = await axios.get(`https://apizingmp3.herokuapp.com/api/song?id={${idsong}}`).then((res) => {
+            const data = await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
                 const json = res.data.data[128];
                 setPath(json);
             });

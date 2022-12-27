@@ -9,7 +9,7 @@ import axios from 'axios';
 const cx = classNames.bind(styles);
 
 function ChartsSongHot() {
-    const url = `https://apizingmp3.herokuapp.com/api/charthome`;
+    const url = `https://apizingmp3.vercel.app/api/charthome`;
 
     const [chart, setChart] = useState([]);
     const [isHide, setIsHide] = useState(false);
@@ -36,19 +36,11 @@ function ChartsSongHot() {
             </header>
 
             <div className={cx('list-song')}>
-                {isHide === true ? (
-                    <div className={cx('chart-list-song')}>
-                        {chart.map((item, index) => (
-                            <ChartListSong key={index} rank={index + 1} data={item} />
-                        ))}
-                    </div>
-                ) : (
-                    <div className={cx('chart-list-song')}>
-                        {chart
-                            .map((item, index) => <ChartListSong key={index} rank={index + 1} data={item} />)
-                            .splice(0, 10)}
-                    </div>
-                )}
+                <div className={cx('chart-list-song')}>
+                    {chart
+                        .map((item, index) => <ChartListSong key={index} rank={index + 1} data={item} />)
+                        .slice(0, isHide ? 100 : 10)}
+                </div>
                 {isHide === false && (
                     <div className={cx('see-all')}>
                         <button className={cx('see-all__btn')} onClick={handleHIde}>

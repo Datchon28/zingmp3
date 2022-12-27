@@ -37,18 +37,16 @@ function NewRelease() {
         BgcbBtnAlbum = 'transperant';
     }
 
-    const url = `https://apizingmp3.herokuapp.com/api/home?page={new-release}`;
+    const url = `https://apizingmp3.vercel.app/api/home?page={new-release}`;
     const [newReleaseSongsVietNam, setNewReleaseSongsVietNam] = useState([]);
     const [newReleaseSongsOther, setNewReleaseSongsOther] = useState([]);
 
     useEffect(() => {
         axios.get(url).then((data) => {
-            setNewReleaseSongsVietNam(data.data.items[3].items.vPop);
-            setNewReleaseSongsOther(data.data.items[3].items.others);
+            setNewReleaseSongsVietNam(data.data.data.items[4].items.vPop);
+            setNewReleaseSongsOther(data.data.data.items[4].items.others);
         });
     }, [url]);
-
-    console.log(newReleaseSongsVietNam.length);
 
     return (
         <div className={cx('main')}>

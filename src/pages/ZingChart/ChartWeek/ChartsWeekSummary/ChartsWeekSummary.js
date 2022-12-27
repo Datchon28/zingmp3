@@ -4,32 +4,31 @@ import { useEffect, useState } from 'react';
 import ChartsWeekItem from './ChartsWeekItem/ChartsWeekItem';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 
 const cx = classNames.bind(styles);
 
 function ChartsWeekSummary({ onClick }) {
-    const url = `https://apizingmp3.herokuapp.com/api/charthome`;
+    const url = `https://apizingmp3.vercel.app/api/charthome`;
 
     const [chartWeekVietNam, setChartWeekVietNam] = useState([]);
     const [chartWeekKorea, setChartWeekKorea] = useState([]);
     const [chartWeekUsUk, setChartWeekUsUk] = useState([]);
 
     useEffect(() => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setChartWeekVietNam(data.data.weekChart.vn.items);
-                setChartWeekKorea(data.data.weekChart.korea.items);
-                setChartWeekUsUk(data.data.weekChart.us.items);
-            });
-    }, []);
+        axios.get(url).then((data) => {
+            setChartWeekVietNam(data.data.data.weekChart.vn.items);
+            setChartWeekKorea(data.data.data.weekChart.korea.items);
+            setChartWeekUsUk(data.data.data.weekChart.us.items);
+        });
+    }, [url]);
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('blur')} />
             <div className={cx('alpha-bgc')} />
             <header className={cx('title')}>
-                <a href="" className={cx('title-link')}>
+                <a href="/chart-week" className={cx('title-link')}>
                     <h3>Bảng Xếp Hạng Tuần</h3>
                 </a>
             </header>
