@@ -5,7 +5,7 @@ import Hover from '../Hover/Hover';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMicrophone, faHeart, faEllipsis, faPlay } from '@fortawesome/free-solid-svg-icons';
 import MenuChildForSong from './MenuChildForSong/MenuChildForSong';
-import { useState, useRef, Fragment } from 'react';
+import { useState, useRef, Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateIdSong } from '../../store/SongIdStore';
 
@@ -18,12 +18,17 @@ function SongHover({ className, rank, thumb, songname, author, timesong, albumna
 
     // Take current ID SONG
     const dispatch = useDispatch();
+    const [currentId, setCurrentId] = useState();
 
     const handleTakeIdSong = () => {
         const id = Songchild.current.id;
-        console.log(id);
-        dispatch(updateIdSong(id));
+        setCurrentId(id);
     };
+
+    useEffect(() => {
+        dispatch(updateIdSong(currentId));
+    }, [currentId]);
+    console.log(currentId);
 
     // Open Menu Child
     const handleClickOpen = () => {

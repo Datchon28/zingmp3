@@ -18,8 +18,8 @@ function ChooseToday() {
 
     useEffect(() => {
         axios.get(url).then((data) => {
-            setPlaylist(data.data.data.items[2].items);
-            setTitles(data.data.data.items[2].title);
+            setPlaylist(data.data.data.items[4].items);
+            setTitles(data.data.data.items[4].title);
         });
     }, []);
 

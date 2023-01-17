@@ -32,13 +32,15 @@ function SongBox() {
 
     // State Song
     const [isPlay, setIsPlay] = useState(false);
+    const [toggle, setToggle] = useState(false);
 
     // Get Info Song
     const [info, setInfo] = useState();
 
     // Get ID SONG
     const idsong = useSelector(selectIdSong);
-    console.log(idsong);
+    const [currentSong, setCurrentSong] = useState(idsong);
+    // console.log(currentSong);
 
     useEffect(() => {
         if (idsong === undefined) {
@@ -58,27 +60,37 @@ function SongBox() {
         }
 
         // Play Song By Api
-        const fetchData = async () => {
-            const data = await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
-                const json = res.data.data[128];
-                setPath(json);
-            });
-            const timer = await audioRef.current.duration;
-            setDuration(timer);
-            setIsPlay(true);
-        };
-        fetchData();
-        audioRef.current.play();
-    }, [idsong]);
+        // const fetchData = async () => {
+        //     setIsPlay(false);
+        //     const data = await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
+        //         const path = res.data.data[128];
+        //         setPath(path);
+        //         setIsPlay(true);
+        //     });
+        //     const timer = await audioRef.current.duration;
+        //     setDuration(timer);
+        //     setIsPlay(true);
+        // };
+        // fetchData();
 
-    const handlePlaySong = () => {
-        setIsPlay(!isPlay);
+        axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
+            const path = res.data.data[128];
+            setPath(path);
+            setIsPlay(!isPlay);
+            setToggle(true);
+        });
 
         if (isPlay === false) {
             audioRef.current.play();
         } else {
             audioRef.current.pause();
         }
+    }, [idsong]);
+    console.log(isPlay);
+
+    const handlePlaySong = () => {
+        setToggle(!toggle);
+        setIsPlay(!isPlay);
     };
 
     return (
@@ -122,7 +134,7 @@ function SongBox() {
                         <FontAwesomeIcon icon={faBackwardStep} />
                     </span>
                     <span className={cx('icon-play')} onClick={handlePlaySong}>
-                        {isPlay === false ? (
+                        {toggle === false ? (
                             <FontAwesomeIcon icon={faCirclePlay} />
                         ) : (
                             <FontAwesomeIcon icon={faCirclePause} />
