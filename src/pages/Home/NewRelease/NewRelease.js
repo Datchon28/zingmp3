@@ -43,8 +43,8 @@ function NewRelease() {
 
     useEffect(() => {
         axios.get(url).then((data) => {
-            setNewReleaseSongsVietNam(data.data.data.items[4].items.vPop);
-            setNewReleaseSongsOther(data.data.data.items[4].items.others);
+            setNewReleaseSongsVietNam(data.data.data.items[3].items.vPop);
+            setNewReleaseSongsOther(data.data.data.items[3].items.others);
         });
     }, [url]);
 
