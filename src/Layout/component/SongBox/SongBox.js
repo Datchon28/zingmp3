@@ -76,21 +76,23 @@ function SongBox() {
         axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
             const path = res.data.data[128];
             setPath(path);
-            setIsPlay(!isPlay);
             setToggle(true);
+            setIsPlay(true);
         });
 
-        if (isPlay === false) {
-            audioRef.current.play();
-        } else {
-            audioRef.current.pause();
-        }
+        audioRef.current.play();
     }, [idsong]);
     console.log(isPlay);
 
     const handlePlaySong = () => {
         setToggle(!toggle);
         setIsPlay(!isPlay);
+
+        if (isPlay === false) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+        }
     };
 
     return (
