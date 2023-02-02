@@ -43,12 +43,12 @@ function SongBox() {
     // console.log(currentSong);
 
     useEffect(() => {
-        if (idsong === undefined) {
+        if (idsong === 0) {
             return;
         }
 
         // Get Info Song By Api
-        if (idsong !== undefined) {
+        if (idsong !== 0) {
             const fetchInfo = async () => {
                 await axios.get(`https://apizingmp3.vercel.app/api/infosong?id={${idsong}}`).then((info) => {
                     setInfo(info.data.data);
@@ -60,25 +60,24 @@ function SongBox() {
         }
 
         // Play Song By Api
-        // const fetchData = async () => {
-        //     setIsPlay(false);
-        //     const data = await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
-        //         const path = res.data.data[128];
-        //         setPath(path);
-        //         setIsPlay(true);
-        //     });
-        //     const timer = await audioRef.current.duration;
-        //     setDuration(timer);
-        //     setIsPlay(true);
-        // };
-        // fetchData();
-
-        axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
-            const path = res.data.data[128];
-            setPath(path);
-            setToggle(true);
+        const fetchData = async () => {
+            setIsPlay(false);
+            const data = await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
+                const path = res.data.data[128];
+                setPath(path);
+                setIsPlay(true);
+            });
+            const timer = await audioRef.current.duration;
+            setDuration(timer);
             setIsPlay(true);
-        });
+        };
+        fetchData();
+
+        // axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
+        //     const path = res.data.data[128];
+        //     setPath(path);
+        //     setToggle(true);
+        // });
 
         audioRef.current.play();
     }, [idsong]);
@@ -86,12 +85,13 @@ function SongBox() {
 
     const handlePlaySong = () => {
         setToggle(!toggle);
-        setIsPlay(!isPlay);
 
         if (isPlay === false) {
-            audioRef.current.play();
-        } else {
             audioRef.current.pause();
+            setIsPlay(false);
+        } else {
+            audioRef.current.play();
+            setIsPlay(true);
         }
     };
 

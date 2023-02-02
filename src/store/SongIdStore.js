@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    idsong: undefined,
+    idsong: 0,
 };
 
 export const SongIdStore = createSlice({
