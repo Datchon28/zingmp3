@@ -61,37 +61,35 @@ function SongBox() {
 
         // Play Song By Api
         const fetchData = async () => {
-            setIsPlay(false);
             const data = await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
                 const path = res.data.data[128];
                 setPath(path);
-                setIsPlay(true);
             });
             const timer = await audioRef.current.duration;
+            console.log(audioRef.current.duration);
             setDuration(timer);
             setIsPlay(true);
+
+            setIsPlay(false);
+            setToggle(true);
         };
         fetchData();
-
-        // axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
-        //     const path = res.data.data[128];
-        //     setPath(path);
-        //     setToggle(true);
-        // });
-
         audioRef.current.play();
     }, [idsong]);
-    console.log(isPlay);
+    // console.log(isPlay, toggle);
 
     const handlePlaySong = () => {
         setToggle(!toggle);
+        setIsPlay(!isPlay);
 
         if (isPlay === false) {
             audioRef.current.pause();
-            setIsPlay(false);
+            setIsPlay(true);
+            setToggle(false);
         } else {
             audioRef.current.play();
-            setIsPlay(true);
+            setIsPlay(false);
+            setToggle(true);
         }
     };
 

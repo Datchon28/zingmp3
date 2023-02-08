@@ -14,6 +14,7 @@ function NewRelease() {
 
     const [hideSongs, setHideSongs] = useState(true);
     const [hideAlbums, setHideAlbums] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleHideSongs = () => {
         setHideSongs(true);
@@ -42,10 +43,15 @@ function NewRelease() {
     const [newReleaseSongsOther, setNewReleaseSongsOther] = useState([]);
 
     useEffect(() => {
-        axios.get(url).then((data) => {
-            setNewReleaseSongsVietNam(data.data.data.items[3].items.vPop);
-            setNewReleaseSongsOther(data.data.data.items[3].items.others);
-        });
+        const fetchData = async () => {
+            setLoading(true);
+            await axios.get(url).then((data) => {
+                setNewReleaseSongsVietNam(data.data.data.items[3].items.vPop);
+                setNewReleaseSongsOther(data.data.data.items[3].items.others);
+            });
+            setLoading(false);
+        };
+        fetchData();
     }, [url]);
 
     return (
@@ -65,7 +71,9 @@ function NewRelease() {
             <div className={cx('menu-item')}>
                 <div className={cx('item-list')}>
                     {hideSongs === true &&
-                        newReleaseSongsVietNam.map((item, index) => <Songs data={item} key={index} />).slice(0, 12)}
+                        newReleaseSongsVietNam
+                            .map((item, index) => <Songs loading={loading} data={item} key={index} />)
+                            .slice(0, 12)}
                     {hideAlbums === true &&
                         newReleaseSongsOther.map((item, index) => <Albums data={item} key={index} />).slice(0, 12)}
                 </div>

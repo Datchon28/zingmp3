@@ -22,13 +22,14 @@ function SongHover({ className, rank, thumb, songname, author, timesong, albumna
 
     const handleTakeIdSong = () => {
         const id = Songchild.current.id;
-        setCurrentId(id);
+        dispatch(updateIdSong(id));
+        // setCurrentId(id);
     };
 
-    useEffect(() => {
-        dispatch(updateIdSong(currentId));
-    }, [currentId]);
-    console.log(currentId);
+    // useEffect(() => {
+    //     dispatch(updateIdSong(currentId));
+    // }, [currentId]);
+    // console.log(currentId);
 
     // Open Menu Child
     const handleClickOpen = () => {

@@ -344,6 +344,35 @@
     }
 }
 
+.loading {
+    width: calc(100% / 3);
+    height: 100%;
+    border: none;
+    background-color: red;
+
+    .content-left {
+        width: 82%;
+    }
+
+    .time-song {
+        display: none;
+    }
+
+    .song-rank {
+        display: none;
+    }
+
+    .thumb-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .icon-btn:nth-child(1),
+    .icon-btn:nth-child(2) {
+        display: none;
+    }
+}
+
 // Tablet Reponsive
 @media (max-width: 1024px) and (min-width: 740px) {
     .media-small {
