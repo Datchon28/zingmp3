@@ -24,6 +24,7 @@ function ChartListSong({ rank, data }) {
                 thumb={data.thumbnail}
                 songname={data.title}
                 author={data.artistsNames}
+                duration={data.duration}
                 // albumname={data.album.title}
             />
         </div>

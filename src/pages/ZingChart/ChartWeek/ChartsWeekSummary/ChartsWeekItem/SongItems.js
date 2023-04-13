@@ -14,6 +14,7 @@ function SongItems({ data, rank }) {
                 thumb={data.thumbnail}
                 songname={data.title}
                 author={data.artistsNames}
+                duration={data.duration}
             />
         </div>
     );

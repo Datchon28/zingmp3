@@ -8,14 +8,14 @@ import axios from 'axios';
 const cx = classNames.bind(style);
 
 function NewSongFull({ data }) {
-    const url = `https://apizingmp3.herokuapp.com/api/newreleasechart`;
+    const url = `https://apizingmp3.vercel.app/api/newreleasechart`;
     const [newSongs, setNewSongs] = useState([]);
 
     useEffect(() => {
         axios.get(url).then((data) => {
             setNewSongs(data.data.data.items);
         });
-    }, []);
+    }, [url]);
 
     return (
         <div className={cx('wrapper')}>
@@ -32,6 +32,7 @@ function NewSongFull({ data }) {
                         songname={item.title}
                         thumb={item.thumbnail}
                         author={item.artistsNames}
+                        duration={item.duration}
                     />
                 ))}
             </div>

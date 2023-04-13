@@ -5,6 +5,7 @@ import { faArrowDown, faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import SongHover from '../../../../components/SongHover';
+import axios from 'axios';
 
 const cx = classNames.bind(styles);
 
@@ -14,24 +15,16 @@ function ChartsWeekDetail() {
     const [active, setActive] = useState('');
     const [current, setCurrent] = useState(0);
 
-    const url = `https://apizingmp3.herokuapp.com/api/charthome`;
+    const url = `https://apizingmp3.vercel.app/api/charthome`;
     const [chartWeekVN, setChartWeekVN] = useState([]);
     const [chartWeekUSUK, setChartWeekUSUK] = useState([]);
     const [chartWeekKPOP, setChartWeekKPOP] = useState([]);
 
     useEffect(() => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setChartWeekVN(data.data.weekChart.vn.items);
-            });
-    }, []);
-    const click = document.querySelectorAll('.link--to');
-    console.log(click);
-    const handleClick = (current) => {
-        setCurrent(current);
-    };
-    // console.log(current);
+        axios.get(url).then((data) => {
+            setChartWeekVN(data.data.data.weekChart.vn.items);
+        });
+    }, [url]);
 
     return (
         <div className={cx('wrapper')}>
@@ -48,7 +41,7 @@ function ChartsWeekDetail() {
                         <ul className={cx('list-title')}>
                             {types.map((type, index) => (
                                 <li className={cx('list-title-item')} key={index}>
-                                    <div className={cx('link')} onClick={() => handleClick(index)}>
+                                    <div className={cx('link')}>
                                         <span className={cx('link--to')}>{type}</span>
                                     </div>
                                 </li>
@@ -80,6 +73,7 @@ function ChartsWeekDetail() {
                                 songname={song.title}
                                 thumb={song.thumbnail}
                                 author={song.artistsNames}
+                                duration={song.duration}
                             />
                         ))}
                     </div>

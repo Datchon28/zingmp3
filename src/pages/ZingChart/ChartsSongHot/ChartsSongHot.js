@@ -22,7 +22,7 @@ function ChartsSongHot() {
         axios.get(url).then((data) => {
             setChart(data.data.data.RTChart.items);
         });
-    }, []);
+    }, [url]);
 
     return (
         <Fragment>

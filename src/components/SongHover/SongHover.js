@@ -11,7 +11,9 @@ import { updateIdSong } from '../../store/SongIdStore';
 
 const cx = classNames.bind(style);
 
-function SongHover({ className, rank, thumb, songname, author, timesong, albumname, id }) {
+function SongHover({ className, rank, thumb, songname, author, duration, albumname, id }) {
+    let minutes = Math.floor(duration / 60);
+    let second = ((duration / 60 - Math.floor(duration / 60)) * 60).toFixed(0);
     // Menu-Other
     const [openSetting, setOpenSetting] = useState(false);
     const Songchild = useRef();
@@ -76,7 +78,9 @@ function SongHover({ className, rank, thumb, songname, author, timesong, albumna
                 </Fragment>
                 <div className={cx('content-right')}>
                     <div className={cx('time-song')}>
-                        <span>05:03</span>
+                        <span>
+                            {minutes}:{second}
+                        </span>
                     </div>
                     <div className={cx('content-right__hover')}>
                         <div className={cx('more')}>

@@ -27,8 +27,11 @@ const cx = classNames.bind(style);
 function SongBox() {
     // Get Source Song
     const audioRef = useRef();
-    const [duration, setDuration] = useState();
     const [Path, setPath] = useState();
+    const [duration, setDuration] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [second, setSecond] = useState(0);
 
     // State Song
     const [isPlay, setIsPlay] = useState(false);
@@ -61,21 +64,28 @@ function SongBox() {
 
         // Play Song By Api
         const fetchData = async () => {
+            // call api for source song
             const data = await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
                 const path = res.data.data[128];
                 setPath(path);
             });
-            const timer = await audioRef.current.duration;
-            console.log(audioRef.current.duration);
-            setDuration(timer);
-            setIsPlay(true);
 
-            setIsPlay(false);
+            // handle timer song
+            const timer = audioRef.current.duration;
+
+            const minutes = timer.toFixed(0) / 60;
+            const second = (minutes - Math.floor(minutes)) * 60;
+            setDuration(timer);
+            setMinutes(Math.floor(minutes));
+            setSecond(second.toFixed());
+
+            // state play song
+            setIsPlay(true);
             setToggle(true);
+            audioRef.current.play();
         };
         fetchData();
-        audioRef.current.play();
-    }, [idsong]);
+    }, [idsong, Path]);
     // console.log(isPlay, toggle);
 
     const handlePlaySong = () => {
@@ -91,6 +101,24 @@ function SongBox() {
             setIsPlay(false);
             setToggle(true);
         }
+    };
+
+    const handleProgressTime = (e) => {
+        if (isPlay) {
+            const currentTime = Math.floor(audioRef.current.currentTime);
+
+            setCurrentTime(currentTime);
+            audioRef.value = currentTime;
+        }
+        // const value = e.target.value;
+        // console.log(currentTime);
+    };
+
+    const UpdateTimeSongProgress = (e) => {
+        const currentTime = Math.floor(audioRef.current.currentTime);
+        audioRef.current.value = currentTime;
+        setCurrentTime(currentTime);
+        console.log(currentTime);
     };
 
     return (
@@ -150,9 +178,20 @@ function SongBox() {
                 <div className={cx('muic-progress')}>
                     <span>0:00</span>
                     <div className={cx('range')}>
-                        <input className={cx('progres-bar')} type="range" range="1" />
+                        <input
+                            className={cx('progres-bar')}
+                            type="range"
+                            step="1"
+                            min="0"
+                            max={duration ? duration : '100'}
+                            onChange={handleProgressTime}
+                            onTimeUpdate={UpdateTimeSongProgress}
+                            value={currentTime}
+                        />
                     </div>
-                    <span>04:53</span>
+                    <span>
+                        {minutes}:{second}
+                    </span>
                 </div>
             </div>
             <div className={cx('music-setting-box')}>
