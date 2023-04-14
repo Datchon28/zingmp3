@@ -72,7 +72,7 @@ function Header() {
 
                             {isOpenSideBarMobile && (
                                 <Modal>
-                                    <div className={cx('sidebar-mobile-modal')}>
+                                    <div className={cx('sidebar-mobile-modal')} onClick={handleOpenSideBarMobile}>
                                         <SideBarMobile />
                                         <span className={cx('close-btn')} onClick={handleOpenSideBarMobile}>
                                             <FontAwesomeIcon icon={faClose} />

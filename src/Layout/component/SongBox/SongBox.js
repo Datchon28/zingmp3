@@ -15,6 +15,7 @@ import {
     faDisplay,
     faVolumeHigh,
     faList,
+    faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import Hover from '../../../components/Hover/Hover';
 import { useEffect, useRef, useState } from 'react';
@@ -28,6 +29,9 @@ function SongBox() {
     // Get Source Song
     const audioRef = useRef();
     const [Path, setPath] = useState();
+    const [loading, setLoading] = useState(false);
+
+    // Get Time Song
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [minutes, setMinutes] = useState(0);
@@ -42,7 +46,6 @@ function SongBox() {
 
     // Get ID SONG
     const idsong = useSelector(selectIdSong);
-    const [currentSong, setCurrentSong] = useState(idsong);
     // console.log(currentSong);
 
     useEffect(() => {
@@ -65,11 +68,11 @@ function SongBox() {
         // Play Song By Api
         const fetchData = async () => {
             // call api for source song
-            const data = await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
+            setLoading(true);
+            await axios.get(`https://apizingmp3.vercel.app/api/song?id={${idsong}}`).then((res) => {
                 const path = res.data.data[128];
                 setPath(path);
             });
-
             // handle timer song
             const timer = audioRef.current.duration;
 
@@ -82,6 +85,8 @@ function SongBox() {
             // state play song
             setIsPlay(true);
             setToggle(true);
+            setLoading(false);
+
             audioRef.current.play();
         };
         fetchData();
@@ -133,6 +138,13 @@ function SongBox() {
                                 : info.thumbnail
                         }
                     />
+                    {loading && (
+                        <div className={cx('loading')}>
+                            <span className={cx('icon-loading')}>
+                                <FontAwesomeIcon icon={faSpinner} />
+                            </span>
+                        </div>
+                    )}
                 </a>
 
                 <div className={cx('music-info')}>

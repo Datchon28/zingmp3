@@ -3,7 +3,7 @@ import style from './SongHover.module.scss';
 
 import Hover from '../Hover/Hover';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMicrophone, faHeart, faEllipsis, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faMicrophone, faHeart, faEllipsis, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import MenuChildForSong from './MenuChildForSong/MenuChildForSong';
 import { useState, useRef, Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -20,12 +20,12 @@ function SongHover({ className, rank, thumb, songname, author, duration, albumna
 
     // Take current ID SONG
     const dispatch = useDispatch();
-    const [currentId, setCurrentId] = useState();
+    const [isplay, setIsPlay] = useState(false);
 
     const handleTakeIdSong = () => {
         const id = Songchild.current.id;
         dispatch(updateIdSong(id));
-        // setCurrentId(id);
+        setIsPlay(true);
     };
 
     // useEffect(() => {
@@ -53,7 +53,7 @@ function SongHover({ className, rank, thumb, songname, author, duration, albumna
                             <figure className={cx('thumb-img')}>
                                 <img alt="anh" src={thumb} />
                                 <span className={cx('icon-play')}>
-                                    <FontAwesomeIcon icon={faPlay} />
+                                    {isplay ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
                                 </span>
                             </figure>
                         </div>

@@ -21,7 +21,7 @@ function ChartBox() {
         axios.get(url).then((data) => {
             setChartsSongs(data.data.data.RTChart.items);
         });
-    }, []);
+    }, [url]);
 
     return (
         <div className={cx('wrapper')}>
@@ -46,6 +46,7 @@ function ChartBox() {
                                     songname={song.title}
                                     author={song.artistsNames}
                                     thumb={song.thumbnail}
+                                    duration={song.duration}
                                     // albumname={song.album.title}
                                 />
                             ))
