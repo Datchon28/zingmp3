@@ -4,14 +4,19 @@
     margin-top: 50px;
 }
 
+.singer {
+    margin-bottom: 18px;
+    padding: 0 16px;
+   flex: 1;
+}
+
 .list {
     display: flex;
-    align-items: center;
+    align-items: start;
 }
 
 .title {
     padding: 0 16px;
-    margin-bottom: 20px;
     color: var(--white-color);
 }
 
@@ -40,6 +45,15 @@
         padding-left: 10px;
         padding-bottom: 12px;
     }
+}
+
+.desc {
+    margin-top: 14px;
+    font-size: 14px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 @media (max-width: 740px) {

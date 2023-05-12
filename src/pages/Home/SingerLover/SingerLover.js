@@ -3,120 +3,55 @@ import style from './SingerLover.module.scss';
 import OverLaySong from '../../../components/OverLaySong/OverLaySong';
 import images from '../../../assets/images';
 import { Responsive } from '../../../Layout/DefaultLayout/DefaultLayout';
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 
 const cx = classNames.bind(style);
 
 function SingerLover() {
     const { isTablet } = useContext(Responsive);
+    const [singers, setSingers] = useState([])
+    const url = 'https://apizingmp3.vercel.app/api/home?page={playlist}'
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await axios.get(url).then((data) => {
+                setSingers(data.data.data.items[5].items)
+            });
+        };
+        fetchData();
+    },[url])
 
     return (
         <div className={cx('wrapper')}>
             <h3 className={cx('title')}>Nghệ Sĩ Yêu Thích</h3>
             <div className={cx('list')}>
                 {isTablet ? (
-                    <Fragment>
-                        <OverLaySong check={false} onlyPlay={true} img={images.singer} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>Trịnh Thăng Bình</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
+                    singers.splice(0,4).map((item, index) => (
+                        <div className={cx('singer')} key={index} id={item.encodeId}>
+                            <OverLaySong check={false} onlyPlay={true} img={item.thumbnail} className={cx('singer-box')}>
+                                <div className={cx('info-singer')} >
+                                    <h4>{item.artists[0].name}</h4>
                                 </div>
+                            </OverLaySong>
+                            <div className={cx('desc')}>
+                                <span >{item.sortDescription}</span>
                             </div>
-                        </OverLaySong>
-
-                        <OverLaySong check={false} onlyPlay={true} img={images.onlyc} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>OnLyC</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                </div>
-                            </div>
-                        </OverLaySong>
-
-                        <OverLaySong check={false} onlyPlay={true} img={images.min} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>MIN</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                </div>
-                            </div>
-                        </OverLaySong>
-
-                        <OverLaySong check={false} onlyPlay={true} img={images.huongtram} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>Hương Tràm</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                </div>
-                            </div>
-                        </OverLaySong>
-                    </Fragment>
+                        </div>
+                    ))
                 ) : (
-                    <Fragment>
-                        <OverLaySong check={false} onlyPlay={true} img={images.singer} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>Trịnh Thăng Bình</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
+                    singers.map((item, index) => (
+                       <div className={cx('singer')} key={index} id={item.encodeId}>
+                            <OverLaySong check={false} onlyPlay={true} img={item.thumbnail} className={cx('singer-box')}>
+                                <div className={cx('info-singer')} >
+                                    <h4>{item.artists[0].name}</h4>
                                 </div>
+                            </OverLaySong>
+                            <div className={cx('desc')}>
+                                <span >{item.sortDescription}</span>
                             </div>
-                        </OverLaySong>
-
-                        <OverLaySong check={false} onlyPlay={true} img={images.onlyc} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>OnLyC</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                </div>
-                            </div>
-                        </OverLaySong>
-
-                        <OverLaySong check={false} onlyPlay={true} img={images.min} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>MIN</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                </div>
-                            </div>
-                        </OverLaySong>
-
-                        <OverLaySong check={false} onlyPlay={true} img={images.huongtram} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>Hương Tràm</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                </div>
-                            </div>
-                        </OverLaySong>
-
-                        <OverLaySong check={false} onlyPlay={true} img={images.mrsiro} className={cx('singer-box')}>
-                            <div className={cx('info-singer')}>
-                                <h4>Mr.Siro</h4>
-                                <div className={cx('img-song')}>
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                    <img alt="anh" src={images.trinhthangbinh} />
-                                </div>
-                            </div>
-                        </OverLaySong>
-                    </Fragment>
+                       </div>
+                    ))
                 )}
             </div>
         </div>

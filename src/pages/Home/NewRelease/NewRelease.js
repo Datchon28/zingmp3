@@ -46,8 +46,8 @@ function NewRelease() {
         const fetchData = async () => {
             setLoading(true);
             await axios.get(url).then((data) => {
-                setNewReleaseSongsVietNam(data.data.data.items[3].items.vPop);
-                setNewReleaseSongsOther(data.data.data.items[3].items.others);
+                setNewReleaseSongsVietNam(data.data.data.items[2].items.vPop);
+                setNewReleaseSongsOther(data.data.data.items[2].items.others);
             });
             setLoading(false);
         };

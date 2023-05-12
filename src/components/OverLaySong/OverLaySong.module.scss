@@ -84,6 +84,11 @@
 }
 
 .title {
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
     margin: 8px 0 4px 0;
     font-size: 14px;
     color: var(--white-color);
@@ -244,5 +249,12 @@
         overflow: hidden;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
+    }
+
+    .raido-oustanding {
+        border-radius: 100rem;
+        text-align: center;
+        width: 120px;
+        height: 72px;
     }
 }
