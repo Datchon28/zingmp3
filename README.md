@@ -2,7 +2,7 @@
 
 
 #Technologies used :
-- ReactJS Framework
+- ReactJS Lib
 - React-Router-Dom
 - Classnames, Sass
 - Axios library
